@@ -35,7 +35,8 @@
     overflow-y: auto;
   }
   .content__name {    
-    padding: 16px;        
+    padding: 16px; 
+/*для фикса зума, который происходит в safari при фокусе поля для ввода*/       
     font-size: initial; 
     width: 100%; 
     border: none;
@@ -43,6 +44,7 @@
   }
   .content__taskDate{        
     padding: 16px;    
+/*для фикса зума, который происходит в safari при фокусе поля для ввода*/           
     font-size: initial;  
     width: 100%; 
     font-family: arial;
