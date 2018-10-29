@@ -4,6 +4,7 @@ import { task as taskStore } from '../../store/task'
 import Form from '../common/Form'
 import Modal from '../hoc/Modal'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router'
 
 class EditForm extends Component {
 
@@ -19,6 +20,11 @@ class EditForm extends Component {
   }
 
   render() {
+//В MapStatetoProps проверяем существует ли такая задача, если нет, то возвращаемся на главную страницу
+//более изящного способа отловить ручной переход по невалидному ID не придумал   
+    if(this.props.invalidId) {
+      return <Redirect to="/"/>      
+    }
     return (  
       <Modal>      
       <Form name={this.props.name}
@@ -33,6 +39,14 @@ class EditForm extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const currentTask = state.tasks.filter( task => task.id === Number.parseInt(ownProps.match.params.id, 10 ))[0];
+  if(!currentTask) {
+    return {
+      name: '',
+      date: '',
+      id: ownProps.match.params.id,
+      invalidId: true
+    }
+  }
   return {
     name: currentTask.name,
     date: currentTask.date,
