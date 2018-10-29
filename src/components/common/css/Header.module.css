@@ -1,0 +1,37 @@
+.header {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: "create blank toggle";
+}
+.header__createButton {
+    position: relative;
+    display: block;
+    margin: auto 10px;
+    padding: 16px;
+    background-color: #1094fb;
+    border: none;
+    flex: auto;    
+    color: white;  
+    grid-area: create;
+}
+.header__checkbox {    
+    grid-area: toggle;
+    align-self: center;
+    justify-self: right;    
+    cursor: pointer;
+}
+
+@media screen and (max-width: 414px) {
+    .header {
+        position: sticky;    
+        top: 0;
+        left: 0;            
+        width: 100%;    
+        background-color: #efefef;
+        padding: 16px;        
+        border-bottom: 1px solid #ccc;   
+        z-index: 1;         
+    }
+}
