@@ -6,6 +6,7 @@ import Checkbox from './Checkbox'
 import PropTypes from 'prop-types'
 
 //для обертки ресайза окна
+//лимитируем количество вызовов на единицу времени
 const throttle = (func, limit) => {
   let lastID;
   let lastCall;
