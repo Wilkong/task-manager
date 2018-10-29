@@ -56,7 +56,8 @@ const mapStateToProps = (state, ownProps) => {
 EditForm.propTypes = {
   id: PropTypes.string.isRequired,  
   date: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  invalidId: PropTypes.bool
 };
 
 export default connect(mapStateToProps, { editTask: taskStore.editTask })(EditForm);
