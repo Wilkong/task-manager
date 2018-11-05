@@ -39,21 +39,18 @@
     padding: 10px;
     box-shadow: 0 0px 5px 2px rgba(0,0,0,0.16);
     margin: 10px;
-    display: grid;
-    grid-template-columns: auto 1fr minmax(30px, auto) minmax(30px, auto);
-    grid-template-areas: "checkbox name edit delete";
-    justify-items: center;
+    display: flex;    
     align-items: center;
-    grid-gap: 15px;
 }
 
 .list__edit a, .list__delete {
-    color: #1094fb;    
+    color: #1094fb;
+    margin-left: 10px;    
 }
 
 .list__name {
-    justify-self: left;
-    align-self: top;
+    flex: 1 1 auto;
+    margin-left: 10px;
 }
 
 .list__date {    

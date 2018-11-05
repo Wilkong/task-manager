@@ -1,26 +1,18 @@
 .header {
     position: relative;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 1fr;
-    grid-template-areas: "create blank toggle";
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;    
 }
 .header__createButton {
     position: relative;
-    display: block;
-    margin: auto 10px;
     padding: 16px;
     background-color: #1094fb;
-    border: none;
-    flex: auto;    
-    color: white;  
-    grid-area: create;
+    border: none;    
+    color: white;      
 }
 .header__checkbox {    
-    grid-area: toggle;
-    align-self: center;
-    justify-self: right;    
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 @media screen and (max-width: 414px) {

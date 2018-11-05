@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import styles from './css/List.module.css'
 import Checkbox from './Checkbox'
@@ -142,4 +141,4 @@ const tasksBody = (tasks, deleteTask, completeTask, hideDone) =>
 
 
           
-export default withRouter(List);
+export default List;

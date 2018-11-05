@@ -1,23 +1,18 @@
-.form {
+.task {
   position: absolute;
-  display: grid;   
+  display: flex;
+  flex-direction: column;  
   top: 0;
   left: 0;
   width: 100%;       
   height: 100%;  
-  background-color: white;       
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header"
-    "content" 
-    "footer";  
+  background-color: white;   
   }
   .header {
     position: relative;      
     background-color: #efefef;
     padding: 16px;
-    grid-area: header;          
+    flex: 0 0 auto;         
     border-bottom: 1px solid #ccc;
   }    
   .header__closeButton {     
@@ -28,37 +23,42 @@
     font-size: 30px;
     cursor: pointer;    
   }
-  .content {
-    position: relative;
-    padding: 16px;    
-    grid-area: content;
+  .form {
+    display: flex;
+    flex-direction: column;      
+  }
+  .form__content {
     overflow-y: auto;
-  }
-  .content__name {    
+    flex: 1 1 auto;  
     padding: 16px; 
-/*для фикса зума, который происходит в safari при фокусе поля для ввода*/       
-    font-size: initial; 
-    width: 100%; 
-    border: none;
-    border-bottom: 2px solid #1094fb;        
+    list-style: none;         
   }
-  .content__taskDate{        
-    padding: 16px;    
+  .form__content li {
+    display: flex;
+    flex-wrap: wrap;    
+  }
+  .content__input{ 
 /*для фикса зума, который происходит в safari при фокусе поля для ввода*/           
     font-size: initial;  
     width: 100%; 
     font-family: arial;
     border: none;    
-    border-bottom: 2px solid #1094fb;            
+    border-bottom: 2px solid #1094fb; 
+    padding: 16px;   
+    flex: 1 0 220px;        
   }
   .content__label {
     align-self: center;
+    flex: 1 0 100px;    
+    margin: 10px 0;     
   }
-  .footer {
-    position: relative;
+  .form__footer {
+    flex: 0 0  auto;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     background-color: #efefef;
-    padding: 16px;
-    grid-area: footer;
+    padding: 16px;    
     border-top: 1px solid #ccc;
   }
   .footer__buttonGroup {
@@ -72,15 +72,9 @@
     flex: auto;    
     color: white;    
   } 
-  .taskForm {
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    grid-auto-rows: 40px;    
-    grid-gap: 10px;
-  }
     /*Для больших экранов  */
 @media screen and (min-width: 415px)  {  
-  .form {     
+  .task {       
     left: 50%;
     top: 50%;         
     max-width: 450px;    
@@ -88,9 +82,18 @@
     transform: translateX(-50%) translateY(-50%);
     background-color: white;      
     box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    grid-template-rows: auto minmax(50px, 1fr) auto;
+    overflow: hidden;    
   }  
+  .form {
+    height: 100%; 
+  }
+  .form__footer {
+    flex: 0 0  auto;
+    position: relative;
+    background-color: #efefef;
+    padding: 16px;    
+    border-top: 1px solid #ccc;
+  }
 }
 
 
